@@ -29,3 +29,20 @@ classifier = MLPMixer(
 
 print(classifier(images))
 ```
+
+## Citation
+
+
+@misc{tolstikhin_mlp-mixer_2021,
+	title = {{MLP}-{Mixer}: {An} all-{MLP} {Architecture} for {Vision}},
+	shorttitle = {{MLP}-{Mixer}},
+	url = {http://arxiv.org/abs/2105.01601},
+	doi = {10.48550/arXiv.2105.01601},
+	urldate = {2025-11-20},
+	publisher = {arXiv},
+	author = {Tolstikhin, Ilya and Houlsby, Neil and Kolesnikov, Alexander and Beyer, Lucas and Zhai, Xiaohua and Unterthiner, Thomas and Yung, Jessica and Steiner, Andreas and Keysers, Daniel and Uszkoreit, Jakob and Lucic, Mario and Dosovitskiy, Alexey},
+	month = jun,
+	year = {2021},
+	note = {arXiv:2105.01601 [cs]},
+	keywords = {Computer Science - Computer Vision and Pattern Recognition, Computer Science - Machine Learning, Computer Science - Artificial Intelligence},
+}

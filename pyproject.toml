@@ -4,11 +4,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mixers"
-version = "0.0.1"
+version = "0.0.11"
 authors = [
   { name="Taha Shieenavaz", email="tahashieenavaz@gmail.com" },
 ]
-description = "The official implementation of MLP Mixer by Tolstikhin, Houlsby, Kolesnikov, Beyer et al."
+description = "The unofficial implementation of MLP Mixer by Tolstikhin, Houlsby, Kolesnikov, Beyer et all based on the official JAX implementation."
 readme = "README.md"
 requires-python = ">=3.9"
 classifiers = [
