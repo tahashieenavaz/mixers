@@ -7,7 +7,7 @@ The unofficial implementation of MLP Mixer by Tolstikhin, Houlsby, Kolesnikov, B
 You can install this package using pip simply by running following command.
 
 ```
-pip install image-mixer
+pip install mixers
 ```
 
 ## Usage
