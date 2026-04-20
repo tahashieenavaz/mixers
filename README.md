@@ -23,9 +23,8 @@ classifier = MLPMixer(
         hidden_dimension = 512,
         tokens_mlp_dimension = 128,
         channels_mlp_dimension = 128,
-        patch_size = 16
+        patch_size = 16,
         image_size = 224
-        image_channels = 3
 )
 
 print(classifier(images))
