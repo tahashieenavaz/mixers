@@ -2,9 +2,9 @@ import torch
 from .MLPBlock import MLPBlock
 
 class MixerBlock(torch.nn.Module):
-    def __init__(self, *, token_dimension: int, hidden_dimension: int, token_mlp_dimension: int, channels_mlp_dimension: int):
+    def __init__(self, *, token_dimension: int, hidden_dimension: int, tokens_mlp_dimension: int, channels_mlp_dimension: int):
         super().__init__()
-        self.token_mlp = MLPBlock(token_dimension, token_mlp_dimension)
+        self.token_mlp = MLPBlock(token_dimension, tokens_mlp_dimension)
         self.channel_mlp = MLPBlock(hidden_dimension, channels_mlp_dimension)
         self.alpha = torch.nn.LayerNorm(hidden_dimension)
         self.beta = torch.nn.LayerNorm(hidden_dimension)

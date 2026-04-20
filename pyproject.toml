@@ -19,7 +19,7 @@ classifiers = [
     "Intended Audience :: Developers",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
-dependencies = ["torch", "einpos"]
+dependencies = ["torch", "einops"]
 keywords = ["mlp", "mixer", "image classification"]
 license = { file = "LICENSE" }
 urls = { Homepage="https://github.com/tahashieenavaz/mlpmixer", Repository="https://github.com/tahashieenavaz/mlpmixer", Documentation="https://github.com/tahashieenavaz/mlpmixer#readme" }
