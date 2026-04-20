@@ -7,14 +7,14 @@ The unofficial implementation of MLP Mixer by Tolstikhin, Houlsby, Kolesnikov, B
 You can install this package using pip simply by running following command.
 
 ```
-pip install mlpmixer
+pip install image-mixer
 ```
 
 ## Usage
 
 ```py
 import torch
-from mlpmixer import MLPMixer
+from mixers import MLPMixer
 
 images = torch.randn(1, 3, 224, 224)
 classifier = MLPMixer(
