@@ -13,7 +13,7 @@ class MLPMixer(torch.nn.Module):
         channels_mlp_dimension: int,
         patch_size: int,
         image_size: int,
-        image_channels: int = 3
+        image_channels: int
     ):
         super().__init__()
 
