@@ -3,7 +3,13 @@ from typing import Type
 
 
 class MLPBlock(torch.nn.Module):
-    def __init__(self, *, input_dimension: int, hidden_dimension: int, activation: Type[torch.nn.Module] = torch.nn.GELU):
+    def __init__(
+        self,
+        *,
+        input_dimension: int,
+        hidden_dimension: int,
+        activation: Type[torch.nn.Module] = torch.nn.GELU,
+    ):
         super().__init__()
         self.mu = torch.nn.Linear(input_dimension, hidden_dimension)
         self.nu = torch.nn.Linear(hidden_dimension, input_dimension)
