@@ -2,18 +2,19 @@ import torch
 import einops
 from .MixerBlock import MixerBlock
 
+
 class MLPMixer(torch.nn.Module):
     def __init__(
         self,
         *,
         num_classes: int,
+        image_size: int,
         num_blocks: int,
-        hidden_dimension:int,
+        hidden_dimension: int,
         tokens_mlp_dimension: int,
         channels_mlp_dimension: int,
         patch_size: int,
-        image_size: int,
-        image_channels: int
+        image_channels: int,
     ):
         super().__init__()
 
@@ -29,15 +30,17 @@ class MLPMixer(torch.nn.Module):
 
         num_patches = (image_size // patch_size) ** 2
 
-        self.blocks = torch.nn.ModuleList([
-            MixerBlock(
-                num_tokens=num_patches,
-                hidden_dimension=hidden_dimension,
-                tokens_mlp_dimension=tokens_mlp_dimension,
-                channels_mlp_dimension=channels_mlp_dimension,
-            )
-            for _ in range(num_blocks)
-        ])
+        self.blocks = torch.nn.ModuleList(
+            [
+                MixerBlock(
+                    num_tokens=num_patches,
+                    hidden_dimension=hidden_dimension,
+                    tokens_mlp_dimension=tokens_mlp_dimension,
+                    channels_mlp_dimension=channels_mlp_dimension,
+                )
+                for _ in range(num_blocks)
+            ]
+        )
 
         self.normalization = torch.nn.LayerNorm(hidden_dimension)
         self.head = torch.nn.Linear(hidden_dimension, num_classes)
@@ -47,7 +50,7 @@ class MLPMixer(torch.nn.Module):
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         x = self.stem(x)
-        x = einops.rearrange(x, 'n c h w -> n (h w) c')
+        x = einops.rearrange(x, "n c h w -> n (h w) c")
 
         for block in self.blocks:
             x = block(x)
