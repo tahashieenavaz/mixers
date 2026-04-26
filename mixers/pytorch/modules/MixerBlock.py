@@ -17,7 +17,7 @@ class MixerBlock(torch.nn.Module):
         self.alpha = torch.nn.LayerNorm(hidden_dimension)
         self.beta = torch.nn.LayerNorm(hidden_dimension)
 
-    def forward(self, x):
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
         residual = x
         x = self.alpha(x).transpose(1, 2)
         x = self.token_mlp(x).transpose(1, 2)
