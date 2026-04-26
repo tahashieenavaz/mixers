@@ -1,6 +1,7 @@
 import torch
 import einops
 from .MixerBlock import MixerBlock
+from .HeadModule import HeadModule
 
 
 class MLPMixer(torch.nn.Module):
@@ -43,10 +44,9 @@ class MLPMixer(torch.nn.Module):
         )
 
         self.normalization = torch.nn.LayerNorm(hidden_dimension)
-        self.head = torch.nn.Linear(hidden_dimension, num_classes)
-
-        torch.nn.init.zeros_(self.head.weight)
-        torch.nn.init.zeros_(self.head.bias)
+        self.head = HeadModule(
+            hidden_dimension=hidden_dimension, num_classes=num_classes
+        )
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         x = self.stem(x)
