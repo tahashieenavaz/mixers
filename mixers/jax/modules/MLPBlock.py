@@ -9,7 +9,7 @@ class MLPBlock(nn.Module):
     activation: Type[nn.Module]
 
     @nn.compact
-    def __call__(self, x: jax.numpy.ndarray) -> jax.numpy.ndarray:
+    def __call__(self, x: jax.Array) -> jax.Array:
         x = nn.Dense(self.hidden_dimension)(x)
         x = self.activation(x)
         x = nn.Dense(self.input_dimension)(x)

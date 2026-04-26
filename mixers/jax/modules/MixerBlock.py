@@ -10,7 +10,7 @@ class MixerBlock(nn.Module):
     channels_mlp_dimension: int
 
     @nn.compact
-    def __call__(self, x: jax.numpy.ndarray) -> jax.numpy.ndarray:
+    def __call__(self, x: jax.Array) -> jax.Array:
         residual = x
         x = nn.LayerNorm()(x)
         x = jax.numpy.swapaxes(x, 1, 2)
