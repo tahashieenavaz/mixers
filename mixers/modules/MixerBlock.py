@@ -6,26 +6,29 @@ class MixerBlock(torch.nn.Module):
     def __init__(
         self,
         *,
-        token_dimension: int,
-        hidden_dimension: int,
-        tokens_mlp_dimension: int,
-        channels_mlp_dimension: int,
+        sequence_length: int,
+        channels: int,
+        tokens_mlp_dim: int,
+        channels_mlp_dim: int,
     ):
         super().__init__()
-        self.token_mlp = MLPBlock(token_dimension, tokens_mlp_dimension)
-        self.channel_mlp = MLPBlock(hidden_dimension, channels_mlp_dimension)
-        self.alpha = torch.nn.LayerNorm(hidden_dimension)
-        self.beta = torch.nn.LayerNorm(hidden_dimension)
+        self.abel = torch.nn.LayerNorm(channels)
+        self.cain = torch.nn.LayerNorm(channels)
+        self.token_mixing = MLPBlock(sequence_length, tokens_mlp_dim)
+        self.channel_mixing = MLPBlock(channels, channels_mlp_dim)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         residual = x
-        x = self.alpha(x).transpose(1, 2)
-        x = self.token_mlp(x).transpose(1, 2)
 
+        # token mixing
+        x = self.abel(x)
+        x = x.transpose(1, 2)
+        x = self.token_mixing(x)
+        x = x.transpose(1, 2)
         x = residual + x
 
+        # channel mixing
         residual = x
-        x = self.beta(x)
-        x = self.channel_mlp(x)
-
+        x = self.cain(x)
+        x = self.channel_mixing(x)
         return residual + x
