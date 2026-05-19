@@ -30,5 +30,5 @@ if __name__ == "__main__":
     assert predictions.shape[-1] == 10
 
     parameters = sum(p.numel() for p in model.parameters() if p.requires_grad)
-    print(f"Number of parameters: {parameters}")
+    print(f"Number of parameters (in millions): {parameters / pow(10, 6)}")
     print(f"Prediction shape: {predictions.shape}")
