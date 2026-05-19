@@ -20,9 +20,11 @@ pip install mixers
 
 ## Usage
 
+Build your own mixer:
+
 ```py
 import torch
-from mixers import MLPMixer
+from mixers.modules import MLPMixer
 
 images = torch.randn(1, 3, 224, 224)
 
@@ -37,6 +39,19 @@ classifier = MLPMixer(
 )
 
 print(classifier(images))  # torch.Size([1, 10])
+```
+
+Use predefined, paper mentioned, mixers: 
+
+```py
+from mixers import BaseMixer16, BaseMixer32
+from mixers import SmallMixer16, SmallMixer32
+from mixers import LargeMixer16, LargeMixer32
+from mixers import HugeMixer14
+
+model = HugeMixer14(image_size=224, num_classes=10)
+
+train_model(model)
 ```
 
 ## Parameters
