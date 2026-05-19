@@ -1,6 +1,6 @@
 import torch
 from typing import Union, Tuple
-from .modules import MLPMixer
+from mixers.modules import MLPMixer
 
 
 class SmallMixer16(MLPMixer):
@@ -24,7 +24,7 @@ class SmallMixer16(MLPMixer):
 
 if __name__ == "__main__":
     model = SmallMixer16(num_classes=10, image_size=224)
-    images = torch.randn()
+    images = torch.randn(1, 3, 224, 224)
     predictions = model(images)
 
     assert predictions.shape[-1] == 10

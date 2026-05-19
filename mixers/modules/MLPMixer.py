@@ -15,8 +15,8 @@ class MLPMixer(torch.nn.Module):
         num_classes: int,
         num_blocks: int,
         hidden_dimension: int,
-        tokens_mlp_dim: int,
-        channels_mlp_dim: int,
+        token_mlp_dimension: int,
+        channel_mlp_dimension: int,
     ):
         super().__init__()
         self.num_classes = num_classes
@@ -40,8 +40,8 @@ class MLPMixer(torch.nn.Module):
                 MixerBlock(
                     sequence_length=self.sequence_length,
                     channels=hidden_dimension,
-                    tokens_mlp_dim=tokens_mlp_dim,
-                    channels_mlp_dim=channels_mlp_dim,
+                    token_mlp_dimension=token_mlp_dimension,
+                    channel_mlp_dimension=channel_mlp_dimension,
                 )
                 for _ in range(num_blocks)
             ]
