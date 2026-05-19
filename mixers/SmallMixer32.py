@@ -1,7 +1,7 @@
 from .modules import MLPMixer
 
 
-class Small32Mixer(MLPMixer):
+class SmallMixer32(MLPMixer):
     def __init__(
         self,
         *,
