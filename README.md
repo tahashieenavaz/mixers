@@ -74,10 +74,10 @@ Paper: http://arxiv.org/abs/2105.01601
 
 ```bibtex
 @misc{2105.01601,
-	Title = {MLP-Mixer: An all-MLP Architecture for Vision},
-	Author = {Ilya Tolstikhin and Neil Houlsby and Alexander Kolesnikov and Lucas Beyer and Xiaohua Zhai and Thomas Unterthiner and Jessica Yung and Andreas Steiner and Daniel Keysers and Jakob Uszkoreit and Mario Lucic and Alexey Dosovitskiy},
-	Year = {2021},
-	Eprint = {arXiv:2105.01601},
+        Title = {MLP-Mixer: An all-MLP Architecture for Vision},
+        Author = {Ilya Tolstikhin and Neil Houlsby and Alexander Kolesnikov and Lucas Beyer and Xiaohua Zhai and Thomas Unterthiner and Jessica Yung and Andreas Steiner and Daniel Keysers and Jakob Uszkoreit and Mario Lucic and Alexey Dosovitskiy},
+        Year = {2021},
+        Eprint = {arXiv:2105.01601},
 }
 ```
 
