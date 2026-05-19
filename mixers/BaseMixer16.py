@@ -1,3 +1,5 @@
+import torch
+from typing import Type
 from .modules import MLPMixer
 
 
@@ -7,6 +9,8 @@ class BaseMixer16(MLPMixer):
         *,
         num_classes: int,
         image_size: int,
+        channel_mixing_activation: Type[torch.nn.Module] = torch.nn.GELU,
+        token_mixing_activation: Type[torch.nn.Module] = torch.nn.GELU,
     ):
         super().__init__(
             image_size=image_size,
@@ -17,4 +21,6 @@ class BaseMixer16(MLPMixer):
             tokens_mlp_dimension=384,
             patch_size=16,
             image_channels=3,
+            channel_mixing_activation=channel_mixing_activation,
+            token_mixing_activation=token_mixing_activation,
         )

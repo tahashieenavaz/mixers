@@ -1,6 +1,6 @@
 import torch
 import einops
-from typing import Tuple, Union
+from typing import Tuple, Union, Type
 from .MixerBlock import MixerBlock
 from .HeadModule import HeadModule
 
@@ -15,8 +15,10 @@ class MLPMixer(torch.nn.Module):
         num_classes: int,
         num_blocks: int,
         hidden_dimension: int,
-        token_mlp_dimension: int,
-        channel_mlp_dimension: int,
+        tokens_mlp_dimension: int,
+        channels_mlp_dimension: int,
+        channel_mixing_activation: Type[torch.nn.Module] = torch.nn.GELU,
+        token_mixing_activation: Type[torch.nn.Module] = torch.nn.GELU,
     ):
         super().__init__()
         self.num_classes = num_classes
@@ -40,8 +42,10 @@ class MLPMixer(torch.nn.Module):
                 MixerBlock(
                     sequence_length=self.sequence_length,
                     channels=hidden_dimension,
-                    token_mlp_dimension=token_mlp_dimension,
-                    channel_mlp_dimension=channel_mlp_dimension,
+                    tokens_mlp_dimension=tokens_mlp_dimension,
+                    channels_mlp_dimension=channels_mlp_dimension,
+                    channel_mixing_activation=channel_mixing_activation,
+                    token_mixing_activation=token_mixing_activation,
                 )
                 for _ in range(num_blocks)
             ]
@@ -50,7 +54,9 @@ class MLPMixer(torch.nn.Module):
         self.final_normalization = torch.nn.LayerNorm(hidden_dimension)
 
         if self.num_classes > 0:
-            self.head = HeadModule(hidden_dimension=hidden_dimension)
+            self.head = HeadModule(
+                hidden_dimension=hidden_dimension, num_classes=num_classes
+            )
 
     def aggregate(self, x: torch.Tensor) -> torch.Tensor:
         return torch.mean(x, dim=1)

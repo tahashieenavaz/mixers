@@ -8,7 +8,7 @@ class MLPBlock(torch.nn.Module):
         *,
         input_dimension: int,
         hidden_dimension: int,
-        activation: Type[torch.nn.Module] = torch.nn.GELU,
+        activation: Type[torch.nn.Module],
     ):
         super().__init__()
         self.mu = torch.nn.Linear(input_dimension, hidden_dimension)

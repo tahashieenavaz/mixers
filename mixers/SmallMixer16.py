@@ -1,6 +1,6 @@
 import torch
 from typing import Union, Tuple
-from mixers.modules import MLPMixer
+from .modules import MLPMixer
 
 
 class SmallMixer16(MLPMixer):
@@ -29,4 +29,6 @@ if __name__ == "__main__":
 
     assert predictions.shape[-1] == 10
 
-    print(predictions.shape)
+    parameters = sum(p.numel() for p in model.parameters() if p.requires_grad)
+    print(f"Number of parameters: {parameters}")
+    print(f"Prediction shape: {predictions.shape}")
