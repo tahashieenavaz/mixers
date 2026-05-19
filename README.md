@@ -4,12 +4,6 @@ An unofficial PyTorch implementation of the MLP-Mixer architecture proposed by *
 
 This package provides a simple and flexible interface for experimenting with all-MLP vision models.
 
-## Features
-
-* PyTorch implementation of MLP-Mixer
-* Simple and customizable architecture
-* Lightweight and easy to integrate
-
 ## Installation
 
 You can install this package using pip by running the following command:
