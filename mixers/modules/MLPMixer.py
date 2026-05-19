@@ -9,7 +9,7 @@ class MLPMixer(torch.nn.Module):
     def __init__(
         self,
         *,
-        in_channels: int,
+        image_channels: int,
         image_size: Union[int, Tuple[int, int]],
         patch_size: Union[int, Tuple[int, int]],
         num_classes: int,
@@ -32,7 +32,7 @@ class MLPMixer(torch.nn.Module):
         )
 
         self.patch_embedding = torch.nn.Conv2d(
-            in_channels, hidden_dimension, kernel_size=patch_size, stride=patch_size
+            image_channels, hidden_dimension, kernel_size=patch_size, stride=patch_size
         )
 
         self.blocks = torch.nn.ModuleList(
