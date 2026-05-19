@@ -56,13 +56,7 @@ train_model(model)
 
 ## Parameters
 
-* `num_classes`: Number of output classes
-* `num_blocks`: Number of mixer layers
-* `hidden_dimension`: Embedding dimension
-* `tokens_mlp_dimension`: Token-mixing MLP size
-* `channels_mlp_dimension`: Channel-mixing MLP size
-* `patch_size`: Size of image patches
-* `image_size`: Input image resolution
+
 
 ## Reference
 
