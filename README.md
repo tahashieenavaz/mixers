@@ -57,16 +57,14 @@ train_model(model)
 ## Parameters
 
 | # | Model        |      Score |
-| 1 | ------------ | ---------: |
-| 2 | LargeMixer16 | 207.181418 |
-| 3 | SmallMixer32 |  18.596754 |
-| 4 | SmallMixer16 |  18.020394 |
-| 5 | LargeMixer32 | 205.924514 |
-| 6 | HugeMixer14  | 431.082762 |
-| 7 | BaseMixer16  |  59.119162 |
-| 8 | BaseMixer32  |  59.532118 |
-
-
+|---|--------------|-----------:|
+| 1 | LargeMixer16 | 207.181418 |
+| 2 | SmallMixer32 |  18.596754 |
+| 3 | SmallMixer16 |  18.020394 |
+| 4 | LargeMixer32 | 205.924514 |
+| 5 | HugeMixer14  | 431.082762 |
+| 6 | BaseMixer16  |  59.119162 |
+| 7 | BaseMixer32  |  59.532118 |
 
 ## Reference
 
